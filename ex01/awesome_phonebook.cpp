@@ -1,8 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   awesome_phonebook.cpp                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cschmied <cschmied@student.42wolfsburg.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/12 21:11:24 by cschmied          #+#    #+#             */
+/*   Updated: 2023/06/12 21:12:16 by cschmied         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "awesome_phonebook.hpp"
 
 int main() {
-	Phonebook   Pb;
+	Phonebook Pb;
 	std::string action;
 	std::string input;
 
@@ -10,13 +21,12 @@ int main() {
 	std::cout << "SEARCH:  displays all saved contacts\n";
 	std::cout << "EXIT:\t exits the programm\n";
 
-	while (1){
+	while (1) {
 		std::cout << "> ";
 		std::cin >> action;
 		if (action == "ADD") {
 			Pb.addUser();
-		}
-		else if (action == "SEARCH") {
+		} else if (action == "SEARCH") {
 			Pb.displayContacts();
 			if (Pb.num_users > 0) {
 				std::cout << "enter index of contact to display\n";
@@ -26,9 +36,8 @@ int main() {
 				else
 					std::cout << "ERROR: input must be numeric\n";
 			}
-		}
-		else if (action == "EXIT")
-			break ;
+		} else if (action == "EXIT")
+			break;
 		else
 			std::cout << "please enter a valid prompt\n";
 	}

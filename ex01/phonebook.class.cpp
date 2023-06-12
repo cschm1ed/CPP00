@@ -1,22 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   phonebook.class.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: cschmied <cschmied@student.42wolfsburg.de  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/12 21:12:08 by cschmied          #+#    #+#             */
+/*   Updated: 2023/06/12 21:12:13 by cschmied         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "phonebook.class.hpp"
 
 Phonebook::Phonebook() : num_users(0) {
-	return ;
+	return;
 }
 
 Phonebook::~Phonebook() {
-	return ;
+	return;
 }
 
-void    Phonebook::addUser( void ) {
+void Phonebook::addUser(void) {
 	std::string tmp;
 
-	if (num_users >= 8)
-	{
+	if (num_users >= 8) {
 		std::cout << "The awesome phonebook can only hold 8 contacts\n";
 		std::cout << "ERROR: maximum number of contacts exceeded\n";
-		return ;
+		return;
 	}
 
 	std::cout << "enter firstname: ";
@@ -35,11 +45,11 @@ void    Phonebook::addUser( void ) {
 	std::cin >> tmp;
 	contacts[num_users].set_darkest_secret(tmp);
 
-	num_users ++;
-	return ;
+	num_users++;
+	return;
 }
 
-void    Phonebook::displayContacts(void ) {
+void Phonebook::displayContacts(void) {
 	std::string tmp;
 
 	std::cout << std::setw(10) << "Index" << "|";
@@ -48,7 +58,7 @@ void    Phonebook::displayContacts(void ) {
 	std::cout << std::setw(10) << "Nickname" << '\n';
 	std::cout << "----------|----------|----------|----------" << '\n';
 
-	for (int i = 0; i < num_users; i ++){
+	for (int i = 0; i < num_users; i++) {
 		std::cout << std::setw(10) << static_cast<char>(i + '1') << "|";
 		display_str_with_width(contacts[i].get_firstname());
 		std::cout << "|";
@@ -57,18 +67,16 @@ void    Phonebook::displayContacts(void ) {
 		display_str_with_width(contacts[i].get_nickname());
 		std::cout << '\n';
 	}
-	return ;
+	return;
 }
 
-void    Phonebook::searchContact(int index) {
-	if (index > 8 || index < 1){
+void Phonebook::searchContact(int index) {
+	if (index > 8 || index < 1) {
 		std::cout << "ERROR: index out of awesome Phonebooks bound\n";
-		return ;
-	}
-	else if (index -1 > num_users)
-	{
+		return;
+	} else if (index - 1 > num_users) {
 		std::cout << "ERROR: Contact does not exist\n";
-		return ;
+		return;
 	}
 	index -= 1;
 	display_key_value("first name", contacts[index].get_firstname());
@@ -78,15 +86,15 @@ void    Phonebook::searchContact(int index) {
 	display_key_value("darkest secret", contacts[index].get_darkest_secret());
 }
 
-void    display_key_value(std::string key, std::string value){
+void display_key_value(std::string key, std::string value) {
 	key += ":";
 	key.resize(15, ' ');
 	value.resize(50);
 	std::cout << std::left << key << value << '\n';
 }
 
-void    display_str_with_width(std::string str){
-	if (str.size() > 10){
+void display_str_with_width(std::string str) {
+	if (str.size() > 10) {
 		str.resize(10);
 		str += ".";
 	}
