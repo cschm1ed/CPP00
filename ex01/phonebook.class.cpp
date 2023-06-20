@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.class.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.de  +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:12:08 by cschmied          #+#    #+#             */
-/*   Updated: 2023/06/12 21:12:13 by cschmied         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:43:55 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,6 @@ Phonebook::~Phonebook() {
 
 void Phonebook::addUser(void) {
 	std::string tmp;
-
-	if (num_users >= 8) {
-		std::cout << "The awesome phonebook can only hold 8 contacts\n";
-		std::cout << "ERROR: maximum number of contacts exceeded\n";
-		return;
-	}
 
 	std::cout << "enter firstname: ";
 	std::cin >> tmp;
@@ -45,7 +39,8 @@ void Phonebook::addUser(void) {
 	std::cin >> tmp;
 	contacts[num_users].set_darkest_secret(tmp);
 
-	num_users++;
+	if (num_users < 7)
+		num_users++;
 	return;
 }
 
@@ -95,7 +90,7 @@ void display_key_value(std::string key, std::string value) {
 
 void display_str_with_width(std::string str) {
 	if (str.size() > 10) {
-		str.resize(10);
+		str.resize(9);
 		str += ".";
 	}
 	std::cout << std::setw(10) << str;

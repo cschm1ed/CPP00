@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cschmied <cschmied@student.42wolfsburg.de  +#+  +:+       +#+        */
+/*   By: cschmied <cschmied@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 21:10:50 by cschmied          #+#    #+#             */
-/*   Updated: 2023/06/12 21:10:56 by cschmied         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:46:38 by cschmied         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv) {
 		input += " ";
 	}
 	for (uint i = 0; i < input.length(); i++) {
-		std::cout << static_cast<char>(tolower(input[i]));
+		std::cout << static_cast<char>(toupper(input[i]));
 	}
 	std::cout << '\n';
 	return 0;
